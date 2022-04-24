@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js --trace-deprecation"
+    "dev": "nodemon app.js --trace-deprecation",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
