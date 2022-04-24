@@ -4,10 +4,15 @@ const Schema = mongoose.Schema;
 
 const CatSchema = new Schema(
   {
-    photo: {type: String},
-    createdAt: {type: Date, default: Date.now}
+    photo: {type: String}
   },
   {timestamps: true}
 );
+
+CatSchema.virtual('id').get(function () {
+  return this._id;
+});
+
+CatSchema.set('toJSON', {virtuals: true});
 
 module.exports = mongoose.model('Cat', CatSchema);

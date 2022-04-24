@@ -14,7 +14,8 @@ async function createUser(req, res, next) {
 async function getUsers(req, res, next) {
   try {
     const users = await User.find({});
-    if (!users.lenght) {
+    console.log(users);
+    if (!users.length) {
       throw notFound('User not found');
     }
     res.status(200).json({status: 'success', code: 200, data: {users}});

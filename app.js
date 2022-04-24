@@ -26,8 +26,8 @@ app.use('/api', api);
 
 require('./config/error-handler')(app);
 
-const port = 4040;
+const port = process.env.PORT || 4040;
 
-app.listen(process.env.PORT || port, () => {
-  console.log('Server is up and running on port numner ' + process.env.PORT || port);
+app.listen(port, () => {
+  console.log('Server is up and running on port numner ' + port);
 });

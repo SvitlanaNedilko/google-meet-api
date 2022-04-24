@@ -16,10 +16,15 @@ const UserSchema = new Schema(
       maxlength: 60,
       required: [true, 'LirstName is required']
     },
-    photo: {type: String},
-    createdAt: {type: Date, default: Date.now}
+    photo: {type: String}
   },
   {timestamps: true}
 );
+
+UserSchema.virtual('id').get(function () {
+  return this._id;
+});
+
+UserSchema.set('toJSON', {virtuals: true});
 
 module.exports = mongoose.model('User', UserSchema);
